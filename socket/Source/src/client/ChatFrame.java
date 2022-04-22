@@ -177,7 +177,7 @@ public class ChatFrame extends JFrame {
 			}
 		});
 
-		btnPhone.setIcon(new ImageIcon(ChatFrame.class.getResource("/image/phone.png")));
+		btnPhone.setIcon(new ImageIcon(ChatFrame.class.getResource("/image/phone_2.png")));
 		btnPhone.setBounds(403, 16, 32, 32);
 		btnPhone.setBorder(new EmptyBorder(0, 0, 0, 0));
 		btnPhone.setContentAreaFilled(false);

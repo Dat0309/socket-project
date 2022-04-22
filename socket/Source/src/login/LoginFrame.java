@@ -142,7 +142,7 @@ public class LoginFrame extends JFrame implements ActionListener {
 		panel.add(txtPort);
 		txtPort.setColumns(10);
 
-		JLabel lblNewLabel_3 = new JLabel("Your Name");
+		JLabel lblNewLabel_3 = new JLabel("Nhập tên");
 		lblNewLabel_3.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblNewLabel_3.setBounds(26, 213, 84, 37);
 		panel.add(lblNewLabel_3);
