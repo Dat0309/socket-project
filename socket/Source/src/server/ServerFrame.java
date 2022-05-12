@@ -84,7 +84,7 @@ public class ServerFrame extends JFrame {
 	 */
 	public ServerFrame() {
 		setResizable(false);
-		setTitle("Server Frame");
+		setTitle("Màn hình Server");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 832, 757);
 		contentPane = new JPanel();
@@ -109,7 +109,7 @@ public class ServerFrame extends JFrame {
 		panel.add(new JPanel());
 		txtIP = new JTextField();
 		txtIP.setEditable(false);
-		txtIP.setForeground(Color.GREEN);
+		txtIP.setForeground(Color.RED);
 		txtIP.setFont(new Font("Times New Roman", Font.PLAIN, 18));
 		panel.add(txtIP);
 		txtIP.setColumns(10);
@@ -137,31 +137,31 @@ public class ServerFrame extends JFrame {
 		txtPort.setForeground(Color.RED);
 		txtPort.setText("8080");
 		txtPort.setFont(new Font("Times New Roman", Font.PLAIN, 18));
-		txtPort.setBounds(93, 0, 185, 34);
+		txtPort.setBounds(91, 0, 188, 34);
 		panel_1.add(txtPort);
 		txtPort.setColumns(10);
 
 		JPanel panel_3 = new JPanel();
 		panel_3.setBorder(new TitledBorder(
 				new EtchedBorder(EtchedBorder.LOWERED, new Color(255, 255, 255), new Color(160, 160, 160)),
-				"Server InFormation", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
+				"Thông tin Server", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
 		panel_3.setBackground(Color.CYAN);
 		panel_3.setBounds(432, 87, 357, 166);
 		contentPane.add(panel_3);
 		panel_3.setLayout(null);
 
-		JLabel lblNewLabel_3 = new JLabel("Status");
+		JLabel lblNewLabel_3 = new JLabel("Tình trạng");
 		lblNewLabel_3.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		lblNewLabel_3.setBounds(22, 36, 74, 17);
+		lblNewLabel_3.setBounds(22, 36, 100, 25);
 		panel_3.add(lblNewLabel_3);
 
-		lblStatus = new JLabel("OFF");
+		lblStatus = new JLabel("TẮT");
 		lblStatus.setForeground(Color.RED);
 		lblStatus.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		lblStatus.setBounds(223, 23, 124, 43);
+		lblStatus.setBounds(223, 30, 124, 43);
 		panel_3.add(lblStatus);
 
-		JLabel lblNewLabel_5 = new JLabel("Number of Users");
+		JLabel lblNewLabel_5 = new JLabel("Số người dùng");
 		lblNewLabel_5.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		lblNewLabel_5.setBounds(22, 94, 184, 32);
 		panel_3.add(lblNewLabel_5);
@@ -173,11 +173,11 @@ public class ServerFrame extends JFrame {
 		panel_3.add(lblUserOnline);
 
 		JPanel panel_4 = new JPanel();
-		panel_4.setBorder(new TitledBorder(null, "Tuy Chon", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+		panel_4.setBorder(new TitledBorder(null, "Tuỳ Chọn", TitledBorder.LEADING, TitledBorder.TOP, null, null));
 		panel_4.setBounds(104, 325, 621, 64);
 		contentPane.add(panel_4);
 
-		btnStartServer = new JButton("Start Server");
+		btnStartServer = new JButton("Bật Server");
 		btnStartServer.setFocusable(false);
 		btnStartServer.addActionListener(new ActionListener() {
 			@Override
@@ -186,7 +186,7 @@ public class ServerFrame extends JFrame {
 					port = Integer.valueOf(txtPort.getText());
 					server = new ServerCore(port);
 					ServerFrame.updateMessage("START SERVER ON PORT " + port);
-					lblStatus.setText("<html><font color='green'>RUNNING...</font></html>");
+					lblStatus.setText("<html><font color='green'>BẬT...</font></html>");
 					btnStopServer.setEnabled(true);
 					btnStartServer.setEnabled(false);
 				} catch (Exception e1) {
@@ -202,7 +202,7 @@ public class ServerFrame extends JFrame {
 		panel_4.add(panel_5);
 		panel_4.add(new JPanel());
 
-		btnStopServer = new JButton("Stop Server");
+		btnStopServer = new JButton("Tắt Server");
 		btnStopServer.setEnabled(false);
 		btnStopServer.setFocusable(false);
 		btnStopServer.addActionListener(new ActionListener() {

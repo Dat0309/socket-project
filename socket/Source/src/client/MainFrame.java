@@ -93,11 +93,6 @@ public class MainFrame extends JFrame implements WindowListener {
 
 	void SaveServer() {
 		try {
-//			PrintWriter printWriter = new PrintWriter(new File(file));
-//			StringBuilder stringBuilder = new StringBuilder();
-//			stringBuilder.append(IPClient + " " + portServer);
-//			printWriter.append(stringBuilder.toString());
-//			printWriter.close();
 			FileWriter fw = new FileWriter(file, true);
 			BufferedWriter bw = new BufferedWriter(fw);
 			bw.write(IPClient + " " + portServer);
@@ -139,7 +134,7 @@ public class MainFrame extends JFrame implements WindowListener {
 		lblNewLabel.setBounds(226, 10, 255, 64);
 		contentPane.add(lblNewLabel);
 
-		JLabel lblNewLabel_1 = new JLabel("Welcome " + nameUser);
+		JLabel lblNewLabel_1 = new JLabel("Chào mừng " + nameUser);
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		lblNewLabel_1.setBounds(27, 80, 309, 47);
 		contentPane.add(lblNewLabel_1);
@@ -167,7 +162,7 @@ public class MainFrame extends JFrame implements WindowListener {
 		JPanel panel_1 = new JPanel();
 		panel_1.setBorder(new TitledBorder(
 				new EtchedBorder(EtchedBorder.LOWERED, new Color(255, 255, 255), new Color(160, 160, 160)),
-				"Server Information", TitledBorder.LEADING, TitledBorder.TOP, null, SystemColor.textHighlight));
+				"Thông tin Server", TitledBorder.LEADING, TitledBorder.TOP, null, SystemColor.textHighlight));
 		panel_1.setForeground(Color.BLUE);
 		panel_1.setBackground(Color.BLACK);
 		panel_1.setBounds(453, 10, 187, 108);

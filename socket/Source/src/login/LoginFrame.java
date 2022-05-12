@@ -37,9 +37,9 @@ import tags.Encode;
 import tags.Tags;
 
 public class LoginFrame extends JFrame implements ActionListener {
-	private static String NAME_FAILED = "THIS NAME CONTAINS INVALID CHARACTER. PLEASE TRY AGAIN";
-	private static String NAME_EXSIST = "THIS NAME IS ALREADY USED. PLEASE TRY AGAIN";
-	private static String SERVER_NOT_START = "TURN ON SERVER BEFORE START";
+	private static String NAME_FAILED = "TÊN NÀY CHỨA KÝ TỰ KHÔNG HỢP LỆ. VUI LÒNG THỬ LẠI";
+	private static String NAME_EXSIST = "TÊN NÀY ĐÃ ĐƯỢC SỬ DỤNG. VUI LÒNG THỬ LẠI";
+	private static String SERVER_NOT_START = "BẬT MÁY CHỦ TRƯỚC KHI BẮT ĐẦU";
 
 	private Pattern checkName = Pattern.compile("[_a-zA-Z][_a-zA-Z0-9]*");
 	private JPanel contentPane;
@@ -69,6 +69,7 @@ public class LoginFrame extends JFrame implements ActionListener {
 		});
 	}
 
+	// Nhận ipaddress và port của server
 	void updateServer(String IP, String port) {
 		txtIP.setText(IP);
 		txtPort.setText(port);
@@ -92,7 +93,7 @@ public class LoginFrame extends JFrame implements ActionListener {
 	 * Create the frame.
 	 */
 	public LoginFrame() {
-		setTitle("Login Frame");
+		setTitle("Đăng nhập");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 680, 504);
 		contentPane = new JPanel();
@@ -100,7 +101,7 @@ public class LoginFrame extends JFrame implements ActionListener {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 
-		JLabel lblNewLabel = new JLabel("Chat Connect Server");
+		JLabel lblNewLabel = new JLabel("Chat kết nối Server");
 		lblNewLabel.setForeground(Color.RED);
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 32));
 		lblNewLabel.setBounds(173, 0, 352, 49);
@@ -114,7 +115,7 @@ public class LoginFrame extends JFrame implements ActionListener {
 		contentPane.add(panel);
 		panel.setLayout(null);
 
-		JLabel lblNewLabel_1 = new JLabel("IP Address  Server");
+		JLabel lblNewLabel_1 = new JLabel("Địa chỉ IP Server");
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblNewLabel_1.setBounds(26, 32, 136, 37);
 		panel.add(lblNewLabel_1);
@@ -149,13 +150,13 @@ public class LoginFrame extends JFrame implements ActionListener {
 
 		txtUserName = new JTextField();
 		txtUserName.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		txtUserName.setBounds(242, 213, 272, 37);
+		txtUserName.setBounds(237, 213, 272, 37);
 		panel.add(txtUserName);
 		txtUserName.setColumns(10);
 
 		JComboBox comboBox = new JComboBox();
 		comboBox.setForeground(Color.BLUE);
-		// Read Data
+		// Đọc data trong file Server.txt, chưa các ipaddress và các port
 		String[] data = null;
 		try {
 			data = readFileServer();
@@ -179,10 +180,10 @@ public class LoginFrame extends JFrame implements ActionListener {
 			});
 		}
 		comboBox.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		comboBox.setBounds(190, 149, 144, 37);
+		comboBox.setBounds(237, 149, 144, 37);
 		panel.add(comboBox);
 
-		btnConnectServer = new JButton("Connect Server");
+		btnConnectServer = new JButton("Kết nối Server");
 		btnConnectServer.setBounds(223, 402, 174, 38);
 		btnConnectServer.addActionListener(this);
 		contentPane.add(btnConnectServer);
@@ -214,6 +215,7 @@ public class LoginFrame extends JFrame implements ActionListener {
 					msg = (String) serverInputStream.readObject();
 
 					socketClient.close();
+
 					if (msg.equals(Tags.SESSION_DENY_TAG)) {
 						JOptionPane.showMessageDialog(this, NAME_EXSIST, "Login Error", JOptionPane.ERROR_MESSAGE);
 						return;
